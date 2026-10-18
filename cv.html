@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaan Kuzu - CV</title>
+<style>
+  @page { size: A4; margin: 10mm 15mm 9mm 15mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Source Sans 3", "Source Sans Pro", "Liberation Sans", Arial, sans-serif; font-size: 9.4pt; line-height: 1.24; color: #222; margin: 0; }
+  @media screen { body { max-width: 820px; margin: 0 auto; padding: 24px 16px 48px; font-size: 15px; line-height: 1.45; } .row { flex-wrap: wrap; } }
+  @media print { .back { display: none; } }
+  .back { font-size: 13px; margin: 0 0 10px; } .back a { color: #555; }
+  header { text-align: center; }
+  h1 { font-size: 25pt; font-weight: 400; margin: 0; letter-spacing: 0.5px; color: #333; }
+  .role { font-size: 8.5pt; font-variant: small-caps; font-weight: 700; letter-spacing: 0.8px; margin-top: 1px; }
+  .loc { font-size: 9pt; font-style: italic; color: #777; margin-top: 2px; }
+  .contact { font-size: 9pt; margin-top: 3px; }
+  .contact a { color: #222; text-decoration: none; }
+  .contact .sep { margin: 0 7px; color: #888; }
+  h2 { display: flex; align-items: center; gap: 6px; font-size: 13pt; font-weight: 800; margin: 8px 0 4px; color: #111; }
+  h2::after { content: ""; flex: 1; border-bottom: 1px solid #444; margin-top: 7px; }
+  p { margin: 0; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .row .l { font-weight: 700; }
+  .row .r { font-style: italic; font-size: 9pt; color: #666; white-space: nowrap; }
+  .row2 .l { font-weight: 400; color: #333; }
+  .entry { margin-bottom: 4px; }
+  .stack { font-style: italic; font-weight: 400; color: #555; font-size: 9.2pt; }
+  ul { margin: 2px 0 0; padding-left: 14px; }
+  li { margin: 1px 0; }
+  .avail { margin-top: 6px; }
+  .skills { display: grid; grid-template-columns: 105px 1fr; column-gap: 12px; row-gap: 2px; }
+  .skills b { text-align: right; font-weight: 800; }
+</style>
+</head>
+<body>
+
+<p class="back"><a href="./">&larr; kaankuzu1.github.io</a></p>
+<header>
+  <h1>Kaan Kuzu</h1>
+  <div class="role">Full Stack Engineer · Computer Science &amp; Engineering Student</div>
+  <div class="loc">Eindhoven, Netherlands</div>
+  <div class="contact">
+    kaankuzu122@outlook.com<span class="sep">|</span>
+    <a href="https://www.linkedin.com/in/kaankkuzu">linkedin.com/in/kaankkuzu</a><span class="sep">|</span>
+    <a href="https://github.com/kaankuzu1">github.com/kaankuzu1</a>
+  </div>
+</header>
+
+<h2>Personal Profile</h2>
+<p>Computer Science &amp; Engineering student at TU/e who builds data and ML pipelines end to end in Python: ingesting raw data,
+validating it, running analysis and models, and producing reproducible, rule-checked results.</p>
+<p class="avail"><b>Availability:</b> part-time during the academic year (8–12 h/week) from Nov 2026; full-time from Jul 2027.</p>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="row"><span class="l">Eindhoven University of Technology (TU/e)</span><span class="r">Eindhoven, Netherlands</span></div>
+  <div class="row row2"><span class="l">BSc Computer Science and Engineering</span><span class="r">Sep 2026 – Jul 2029 (expected)</span></div>
+</div>
+<div class="entry">
+  <div class="row"><span class="l">Lycée Saint-Benoît</span><span class="r">Istanbul, Turkey</span></div>
+  <div class="row row2"><span class="l">High school diploma, grade 87/100 (French-Turkish bilingual program)</span><span class="r">2021 – 2026</span></div>
+  <ul>
+    <li>AP Calculus BC: score 5/5. Sabancı University Summer School (2024): Artificial Intelligence and Machine Learning, Introduction to Web Programming.</li>
+  </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="entry">
+  <div class="row"><span class="l">AudienceLabs: multimodal audio/video analysis pipeline</span><span class="r">Apr 2026 – present</span></div>
+  <div class="row row2"><span class="stack">Python, FastAPI, PyTorch, Faster-Whisper, pyannote, librosa, XGBoost, PostgreSQL, Modal</span></div>
+  <ul>
+    <li>Built a pipeline that ingests recordings of up to 4 hours, extracts audio with ffmpeg, transcribes it with word-level timestamps (Faster-Whisper)
+      and aligns speaker diarization (pyannote 3.1) and audio-energy/emotion signals (librosa, wav2vec2) into a per-second feature timeline.</li>
+    <li>Designed a two-pass LLM analysis (segmentation, then event detection) followed by deterministic validation rules (minimum duration,
+      truncation and mid-sentence checks, sentence-boundary snapping) and IoU-based deduplication, turning noisy model output into consistent results.</li>
+    <li>Implemented a pluggable scoring interface with a heuristic baseline and an XGBoost regressor, plus a weekly retraining job: feature extraction,
+      normalized labels, seeded 80/20 train/validation split, and a versioned model registry with automatic fallback to the baseline. Released the scoring stage as an open-source package with tests and CI: <a href="https://github.com/kaankuzu1/clip-virality-scorer" style="color:#222">github.com/kaankuzu1/clip-virality-scorer</a>.</li>
+    <li>Runs as fail-soft, idempotent GPU jobs on Modal with per-stage status in PostgreSQL and a Next.js dashboard for results;
+      documented with ADRs. Sole developer, 120+ commits; private beta since Oct 2026.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span class="l">Multi-agent content automation for a law practice</span><span class="r">Sep 2026 – present</span></div>
+  <div class="row row2"><span class="stack">TypeScript, Claude API, Trigger.dev, Supabase, WhatsApp Cloud API</span></div>
+  <ul>
+    <li>Building a daily workflow, now in final testing, in which six specialized LLM agents (research with legal-database tools, writing, design, captioning) prepare
+      an informational post, with every step gated by the lawyer's approval over WhatsApp.</li>
+    <li>Added output validation per step, event and cost logging in PostgreSQL, and a watchdog that checks every 5 minutes for stalled or
+      timed-out runs and resumes them from the last completed step.</li>
+  </ul>
+</div>
+
+<h2>Activities</h2>
+<div class="entry">
+  <div class="row"><span class="l">E.S.A.I.V. Serpentine</span><span class="r">Eindhoven, Netherlands</span></div>
+  <div class="row row2"><span class="l">Member, TU/e AI association and student team</span><span class="r">2026 – present</span></div>
+</div>
+<div class="entry">
+  <div class="row"><span class="l">GEWIS</span><span class="r">Eindhoven, Netherlands</span></div>
+  <div class="row row2"><span class="l">Member, study association for Mathematics and Computer Science</span><span class="r">2026 – present</span></div>
+</div>
+<div class="entry">
+  <div class="row"><span class="l">FIRST Robotics Competition (FRC Turkey), Team ROBIN</span><span class="r">Istanbul, Turkey</span></div>
+  <div class="row row2"><span class="l">Software team member</span><span class="r">2023 – 2025</span></div>
+</div>
+
+<div class="entry">
+  <div class="row"><span class="l">"Move on Sui Mini Hackathon" Bootcamp, RiseIn</span><span class="r">Online</span></div>
+  <div class="row row2"><span class="l">Participant, program introducing developers to the Sui blockchain ecosystem</span><span class="r">2023</span></div>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <b>Programming</b><span>Python, TypeScript/JavaScript, SQL, C++</span>
+  <b>Data &amp; ML</b><span>NumPy, PyTorch, XGBoost, librosa, Faster-Whisper, pyannote, Hugging Face Transformers, LLM APIs</span>
+  <b>Engineering</b><span>FastAPI, Next.js/React, PostgreSQL, Docker, Git, ffmpeg, Modal, Vercel, Claude Code</span>
+  <b>Languages</b><span>Turkish (native), English (IELTS 7.0), French (DALF C1)</span>
+  <b>Interests</b><span>Theater (Théâtre Choc; competitions in Ankara and Istanbul, performed Andromaque in Lille on an exchange), volunteering (Hatay earthquake relief), football, tennis (local league), shot put</span>
+</div>
+
+</body>
+</html>
