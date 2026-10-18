@@ -21,7 +21,7 @@ h2{font:700 22px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-s
 .dim::before,.dim::after{content:"";flex:1;border-top:1px solid var(--line)}
 .dim::before{border-top-style:dashed}.dim::after{border-top-style:dashed}
 .photo{width:112px;height:112px;border:2px solid var(--line);padding:4px;position:relative}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;filter:grayscale(.5) contrast(1.1) sepia(.25) hue-rotate(170deg)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;filter:saturate(.85) contrast(1.05)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-bottom:24px}
 .c{border:1px solid var(--line);padding:18px 16px 14px;position:relative;min-width:0;background:rgba(13,65,128,.35)}
 .c.wide{grid-column:1/-1}
@@ -41,8 +41,9 @@ svg .hi{stroke:var(--hl)}
 .links a{display:flex;gap:14px;align-items:baseline;padding:9px 6px;color:var(--fg);text-decoration:none;overflow-wrap:anywhere;transition:background .15s}
 .links a:hover,.links a:focus-visible{background:rgba(255,216,74,.12);outline:none}
 .links a span{flex:none;width:84px;color:var(--hl);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.links em{color:var(--mute);font-style:normal;font-size:11px;white-space:nowrap}
 .pj{margin-bottom:24px}
+.sh{font:700 14px 'Space Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 16px;display:flex;align-items:center;gap:12px}
+.sh::after{content:"";flex:1;border-top:1px dashed var(--line)}
 .pj summary{display:inline-block;cursor:pointer;list-style:none;border:2px solid var(--hl);color:var(--hl);padding:8px 18px;font:700 18px 'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;user-select:none}
 .pj summary::-webkit-details-marker{display:none}
 .pj summary::after{content:" +"}.pj[open] summary::after{content:" \2212"}
@@ -62,14 +63,15 @@ a{color:var(--hl);text-underline-offset:3px}
 <ul class="links">
 <li><a href="cv.html"><span>CV</span> Resume (one page)</a></li>
 <li><a href="mailto:kaankuzu122@outlook.com"><span>Mail</span> kaankuzu122@outlook.com</a></li>
-<li><a href="https://kaankuzu1.github.io/" aria-current="page"><span>Web</span> kaankuzu1.github.io <em>(you are here)</em></a></li>
+<li><a href="https://kaankuzu1.github.io/" aria-current="page"><span>Web</span> kaankuzu1.github.io</a></li>
 <li><a href="https://github.com/kaankuzu1"><span>GitHub</span> github.com/kaankuzu1</a></li>
 <li><a href="https://www.linkedin.com/in/kaankkuzu"><span>LinkedIn</span> linkedin.com/in/kaankkuzu</a></li>
 <li><a href="https://x.com/kaankuzudev"><span>X</span> @kaankuzudev</a></li>
 </ul>
 <details class="pj"><summary id="sm">Show my projects</summary>
+<h3 class="sh">Projects</h3>
 <div class="cards">
-<div class="c wide" data-n="PL-01 / FLAGSHIP"><h2>Audience Labs</h2><p>AI tool that turns long Twitch and Kick VODs into ready-to-post vertical clips. Open for beta requests at <a href="https://audiencelabs.net">audiencelabs.net</a>. Built solo with AI-assisted development (Claude Code).</p><p class="meta">Next.js · Python · Supabase · Modal</p>
+<div class="c wide" data-n="PL-01 / FLAGSHIP"><h2>Audience Labs</h2><p>AI tool that turns long Twitch and Kick VODs into ready-to-post vertical clips. Open for beta requests at <a href="https://audiencelabs.net">audiencelabs.net</a>. Built solo with AI-assisted development.</p><p class="meta">Next.js · Python · Supabase · Modal</p>
 <svg viewBox="0 0 760 92" role="img" aria-label="Pipeline: VOD, Whisper transcription, pyannote speaker ID, LLM analysis, virality scoring, vertical clip"><g><rect x="2" y="26" width="86" height="40"/><rect x="132" y="26" width="104" height="40"/><rect x="280" y="26" width="104" height="40"/><rect x="428" y="26" width="104" height="40"/><rect x="576" y="26" width="86" height="40" class="hi"/><rect x="706" y="26" width="52" height="40" class="hi"/></g>
 <g><path class="flow" d="M88 46H132M236 46H280M384 46H428M532 46H576M662 46H706"/></g>
 <text x="14" y="50">VOD</text><text x="148" y="50">Whisper</text><text x="294" y="50">pyannote</text><text x="448" y="50">LLM</text><text x="590" y="50">score</text><text x="714" y="50">clip</text>
@@ -78,11 +80,13 @@ a{color:var(--hl);text-underline-offset:3px}
 <div class="c" data-n="PL-02 / OPEN SOURCE"><h2>clip-virality-scorer</h2><p>CLI that ranks candidate short-form clips by how likely they are to perform. MIT, 45 tests, CI. <a href="https://github.com/kaankuzu1/clip-virality-scorer">Source</a></p><p class="meta">Python · standard library only</p>
 <svg viewBox="0 0 340 96" role="img" aria-label="Candidate clips ranked by score"><line x1="60" y1="4" x2="60" y2="84"/><rect x="60" y="8" width="250" height="14" class="hi"/><rect x="60" y="30" width="215" height="14"/><rect x="60" y="52" width="170" height="14"/><rect x="60" y="74" width="120" height="14"/><text x="8" y="19">#1</text><text x="8" y="41">#2</text><text x="8" y="63">#3</text><text x="8" y="85">#4</text></svg></div>
 
-<div class="c" data-n="PL-03 / ROBOTICS"><h2>FRC Team ROBIN</h2><p>Member of the software team for a FIRST Robotics Competition robot.</p><p class="meta">2023 – 2025 · Istanbul</p>
+<div class="c" data-n="PL-03 / PRIVATE"><h2>Law office automation</h2><p>AI pipeline that drafts and schedules a law office's social posts. A human approves every post before it goes out.</p><p class="meta">Python · approval step in the loop</p></div>
+</div>
+<h3 class="sh">Activities</h3>
+<div class="cards">
+<div class="c" data-n="AC-01 / ROBOTICS"><h2>FRC Team ROBIN</h2><p>Member of the software team for a FIRST Robotics Competition robot.</p><p class="meta">2023 – 2025 · Istanbul</p>
 <svg viewBox="0 0 340 96" role="img" aria-label="Robot control loop"><rect x="10" y="30" width="80" height="34"/><rect x="130" y="30" width="80" height="34"/><rect x="250" y="30" width="80" height="34"/><path d="M90 47H130M210 47H250M290 30V12H50V30"/><text x="22" y="51">sensors</text><text x="142" y="51">code</text><text x="258" y="51">motors</text></svg></div>
-
-<div class="c" data-n="PL-04 / PRIVATE"><h2>Law office automation</h2><p>AI pipeline that drafts and schedules a law office's social posts. A human approves every post before it goes out.</p><p class="meta">Python · approval step in the loop</p></div>
-<div class="c" data-n="PL-05 / COMMUNITY"><h2>Serpentine AI</h2><p>Member of the TU/e AI student association.</p><p class="meta">2026 – present · Eindhoven</p></div>
+<div class="c" data-n="AC-02 / COMMUNITY"><h2>Serpentine AI</h2><p>Member of the TU/e AI student association.</p><p class="meta">2026 – present · Eindhoven</p></div>
 </div>
 </details>
 <div class="tb"><div><small>Stack</small>Python, TypeScript, Next.js, PyTorch, OpenCV, Supabase, Modal</div><div><small>Education</small>TU/e BSc CSE 2026–29</div><div><small>Languages</small>TR · EN · FR</div></div>
