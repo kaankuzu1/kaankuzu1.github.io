@@ -55,11 +55,11 @@
 <h2>Projects</h2>
 <div class="entry">
   <div class="row"><span><b>AudienceLabs</b> | <i>Multimodal audio/video analysis pipeline (Python, FastAPI, PyTorch, Modal)</i></span><span class="r">Apr 2026 - Present</span></div>
-  <div><b>Link:</b> <a href="https://github.com/kaankuzu1/clip-virality-scorer">github.com/kaankuzu1/clip-virality-scorer</a> (open-source scoring stage)</div>
+  <div><b>Link:</b> <a href="https://audiencelabs.net">audiencelabs.net</a></div>
   <ul>
     <li>Built a pipeline that ingests recordings of up to 4 hours, extracts audio with ffmpeg, transcribes it with word-level timestamps (Faster-Whisper) and aligns speaker diarization (pyannote 3.1) and audio-energy/emotion signals (librosa, wav2vec2) into a per-second feature timeline.</li>
     <li>Designed a two-pass LLM analysis (segmentation, then event detection) followed by deterministic validation rules (minimum duration, truncation and mid-sentence checks, sentence-boundary snapping) and IoU-based deduplication, turning noisy model output into consistent results.</li>
-    <li>Implemented a pluggable scoring interface with a heuristic baseline and an XGBoost regressor, plus a weekly retraining job with seeded 80/20 split and a versioned model registry with automatic fallback; released the scoring stage as an open-source package with tests and CI.</li>
+    <li>Implemented a pluggable scoring interface with a heuristic baseline and an XGBoost regressor, plus a weekly retraining job with seeded 80/20 split and a versioned model registry with automatic fallback; released the scoring stage as an open-source package with tests and CI (<a href="https://github.com/kaankuzu1/clip-virality-scorer">github.com/kaankuzu1/clip-virality-scorer</a>).</li>
     <li>Runs as fail-soft, idempotent GPU jobs on Modal with per-stage status in PostgreSQL and a Next.js dashboard; documented with ADRs. Sole developer, 120+ commits; open for beta requests.</li>
   </ul>
 </div>
