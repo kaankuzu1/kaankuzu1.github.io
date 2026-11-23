@@ -7,12 +7,12 @@
 <style>
   @page { size: Letter; margin: 0.45in 0.5in 0.4in 0.5in; }
   * { box-sizing: border-box; }
-  body { font-family: Carlito, Calibri, Arial, sans-serif; font-size: 10pt; line-height: 1.22; color: #000; margin: 0; }
+  body { font-family: Carlito, Calibri, Arial, sans-serif; font-size: 9.8pt; line-height: 1.2; color: #000; margin: 0; }
   header { text-align: center; }
   h1 { font-size: 20pt; font-weight: 700; margin: 0; }
   .contact { font-size: 9.5pt; margin-top: 4px; }
   .contact a { color: #000; text-decoration: underline; }
-  h2 { font-size: 10pt; font-weight: 700; text-transform: uppercase; margin: 10px 0 4px; padding-bottom: 1px; border-bottom: 1px solid #000; }
+  h2 { font-size: 10pt; font-weight: 700; text-transform: uppercase; margin: 8px 0 3px; padding-bottom: 1px; border-bottom: 1px solid #000; }
   p { margin: 0; }
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
   .r { white-space: nowrap; }
@@ -59,15 +59,23 @@
   <ul>
     <li>Built a pipeline that ingests recordings of up to 4 hours, extracts audio with ffmpeg, transcribes it with word-level timestamps (Faster-Whisper) and aligns speaker diarization (pyannote 3.1) and audio-energy/emotion signals (librosa, wav2vec2) into a per-second feature timeline.</li>
     <li>Designed a two-pass LLM analysis (segmentation, then event detection) followed by deterministic validation rules (minimum duration, truncation and mid-sentence checks, sentence-boundary snapping) and IoU-based deduplication, turning noisy model output into consistent results.</li>
-    <li>Implemented a pluggable scoring interface with a heuristic baseline and an XGBoost regressor, plus a weekly retraining job with seeded 80/20 split and a versioned model registry with automatic fallback; released the scoring stage as an open-source package with tests and CI (<a href="https://github.com/kaankuzu1/clip-virality-scorer">github.com/kaankuzu1/clip-virality-scorer</a>).</li>
-    <li>Runs as fail-soft, idempotent GPU jobs on Modal with per-stage status in PostgreSQL and a Next.js dashboard; documented with ADRs. Sole developer, 120+ commits; open for beta requests.</li>
+    <li>Implemented a pluggable scoring interface with a heuristic baseline and an XGBoost regressor, with weekly retraining and a versioned model registry with fallback; released the scoring stage as an open-source package with tests and CI (<a href="https://github.com/kaankuzu1/clip-virality-scorer">clip-virality-scorer</a>).</li>
+    <li>Fail-soft, idempotent GPU jobs on Modal with per-stage status in PostgreSQL and a Next.js dashboard. Sole developer, 120+ commits; open for beta requests.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><span><b>Lightbeam</b> | <i>Early-stage startup ranking model (Python, scikit-learn, pandas)</i></span><span class="r">Nov 2026</span></div>
+  <div><b>Links:</b> <a href="https://lightbeam-iota.vercel.app">lightbeam-iota.vercel.app</a> | <a href="https://github.com/kaankuzu1/lightbeam-public">github.com/kaankuzu1/lightbeam-public</a></div>
+  <ul>
+    <li>Team project at the MAIN AI Hackathon 2026 (HTGF track): ranks young European startups by their resemblance to companies that later raised a first round, with reasons shown for every score. Logistic regression per data lane, 33k company snapshots.</li>
+    <li>Tested on years the model never saw: out-of-time AUC 0.60 and 0.63; shuffled-label placebo near 0.5, leak audit with 22 tests. Dashboard on Vercel; pipeline open-sourced.</li>
   </ul>
 </div>
 <div class="entry">
   <div class="row"><span><b>Multi-agent content automation for a law practice</b> | <i>TypeScript, Claude API, Trigger.dev, Supabase</i></span><span class="r">Sep 2026 - Present</span></div>
   <ul>
     <li>Building a daily workflow, now in final testing, in which six specialized LLM agents (research with legal-database tools, writing, design, captioning) prepare an informational post, with every step gated by the lawyer's approval over WhatsApp.</li>
-    <li>Added output validation per step, event and cost logging in PostgreSQL, and a watchdog that checks every 5 minutes for stalled or timed-out runs and resumes them from the last completed step.</li>
+    <li>Added per-step output validation, event and cost logging in PostgreSQL, and a watchdog that resumes stalled runs from the last completed step.</li>
   </ul>
 </div>
 
@@ -76,7 +84,7 @@
   <div><b>Links:</b> <a href="https://dustling.app">dustling.app</a> | <a href="https://github.com/kaankuzu1/dustling">github.com/kaankuzu1/dustling</a></div>
   <ul>
     <li>Built a free, MIT-licensed Mac app (v0.1.1, macOS 14+, Apple silicon and Intel) that scans caches, logs and developer leftovers, uninstalls apps with their leftovers and manages startup items; no network calls or telemetry.</li>
-    <li>Designed a UI-free core engine with a CLI and SwiftUI front end; all deletions go through one Trash-first mover enforcing protected-path rules, with per-file outcome reporting, run history with restore, and a Full Disk Access health check; tests run in temporary sandboxes. VoiceOver and keyboard support.</li>
+    <li>Designed a UI-free core engine with a CLI and SwiftUI front end; all deletions go through one Trash-first mover enforcing protected-path rules, with per-file outcome reporting, run history with restore, and a Full Disk Access health check; tests run in temporary sandboxes.</li>
   </ul>
 </div>
 
@@ -89,6 +97,6 @@
 </ul>
 
 <h2>Interests</h2>
-<div>Theater (Théâtre Choc; competitions in Ankara and Istanbul, performed Andromaque in Lille on an exchange), volunteering (Hatay earthquake relief), football, tennis (local league), shot put</div>
+<div>Theater (Théâtre Choc; competitions in Ankara and Istanbul), volunteering (Hatay earthquake relief), football, tennis, shot put</div>
 </body>
 </html>
